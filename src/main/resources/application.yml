@@ -1,0 +1,46 @@
+spring:
+  application:
+    name: bank-batch
+  datasource:
+    url: jdbc:postgresql://localhost:5433/bankxyz
+    username: bank
+    password: bank
+    hikari:
+      maximum-pool-size: 24
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        jdbc:
+          batch_size: 100
+        order_inserts: true
+        order_updates: true
+    open-in-view: false
+  batch:
+    jdbc:
+      initialize-schema: always
+    job:
+      enabled: false
+
+bank:
+  input:
+    transacciones: file:./data/transacciones.csv
+    intereses: file:./data/intereses.csv
+    cuentas-anuales: file:./data/cuentas_anuales.csv
+  scaling:
+    chunk-size: 100
+    threads: 4
+    grid-size: 4
+  tolerancia:
+    skip-limit: 700
+    retry-limit: 3
+  tasas:
+    ahorro: 0.025
+    prestamo: 0.018
+    hipoteca: 0.012
+
+logging:
+  level:
+    org.springframework.batch: INFO
+    cl.duoc.bankbatch: INFO

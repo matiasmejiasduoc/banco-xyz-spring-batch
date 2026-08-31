@@ -1,0 +1,61 @@
+matiasmejias@Mac-mini-de-Matias sumativa-01 % java -jar target/bank-batch-0.0.1-SNAPSHOT.jar --job=reporteTransaccionesDiarias
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.1)
+
+2026-08-30T18:48:35.545-04:00  INFO 36425 --- [bank-batch] [           main] cl.duoc.bankbatch.BankBatchApplication   : Starting BankBatchApplication v0.0.1-SNAPSHOT using Java 24.0.2 with PID 36425 (/Users/matiasmejias/Documents/development/duoc/backend-03/sumativa-01/target/bank-batch-0.0.1-SNAPSHOT.jar started by matiasmejias in /Users/matiasmejias/Documents/development/duoc/backend-03/sumativa-01)
+2026-08-30T18:48:35.547-04:00  INFO 36425 --- [bank-batch] [           main] cl.duoc.bankbatch.BankBatchApplication   : No active profile set, falling back to 1 default profile: "default"
+2026-08-30T18:48:35.721-04:00  INFO 36425 --- [bank-batch] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-30T18:48:35.738-04:00  INFO 36425 --- [bank-batch] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 1 JPA repository interface.
+2026-08-30T18:48:35.902-04:00  INFO 36425 --- [bank-batch] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-30T18:48:35.924-04:00  INFO 36425 --- [bank-batch] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-08-30T18:48:36.080-04:00  INFO 36425 --- [bank-batch] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-30T18:48:36.090-04:00  INFO 36425 --- [bank-batch] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-08-30T18:48:36.173-04:00  INFO 36425 --- [bank-batch] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1d17423f
+2026-08-30T18:48:36.175-04:00  INFO 36425 --- [bank-batch] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-08-30T18:48:36.205-04:00  INFO 36425 --- [bank-batch] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5433/bankxyz]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 16.14
+	Default catalog/schema: bankxyz/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-30T18:48:36.526-04:00  INFO 36425 --- [bank-batch] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-30T18:48:36.527-04:00  INFO 36425 --- [bank-batch] [           main] org.hibernate.orm.jdbc.batch             : HHH100501: Automatic JDBC statement batching enabled (maximum batch size 100)
+2026-08-30T18:48:36.571-04:00  WARN 36425 --- [bank-batch] [           main] org.hibernate.orm.jdbc.warn              : HHH000247: ErrorCode: 0, SQLState: 00000
+2026-08-30T18:48:36.571-04:00  WARN 36425 --- [bank-batch] [           main] org.hibernate.orm.jdbc.warn              : constraint "uk5bvrb4kixpsli7ojtomwfhqxy" of relation "estado_cuenta_anual" does not exist, skipping
+2026-08-30T18:48:36.573-04:00  WARN 36425 --- [bank-batch] [           main] org.hibernate.orm.jdbc.warn              : HHH000247: ErrorCode: 0, SQLState: 00000
+2026-08-30T18:48:36.573-04:00  WARN 36425 --- [bank-batch] [           main] org.hibernate.orm.jdbc.warn              : constraint "ukncubqlls6v43e64jqinuaqme" of relation "resumen_transaccion_diaria" does not exist, skipping
+2026-08-30T18:48:36.575-04:00  INFO 36425 --- [bank-batch] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-30T18:48:36.621-04:00  INFO 36425 --- [bank-batch] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-08-30T18:48:36.737-04:00  INFO 36425 --- [bank-batch] [           main] cl.duoc.bankbatch.BankBatchApplication   : Started BankBatchApplication in 1.345 seconds (process running for 1.531)
+2026-08-30T18:48:36.759-04:00  INFO 36425 --- [bank-batch] [           main] o.s.b.c.l.s.TaskExecutorJobLauncher      : Job: [SimpleJob: [name=reporteTransaccionesDiarias]] launched with the following parameters: [{JobParameter{name='ejecucion', value=1788130116738, type=class java.lang.String, identifying=true}}]
+2026-08-30T18:48:36.761-04:00  INFO 36425 --- [bank-batch] [           main] o.s.batch.core.step.AbstractStep         : Executing step: [cargarTransaccionesStep]
+2026-08-30T18:48:37.118-04:00  INFO 36425 --- [bank-batch] [           main] o.s.batch.core.step.AbstractStep         : Step: [cargarTransaccionesStep] executed in 356ms
+2026-08-30T18:48:37.118-04:00  INFO 36425 --- [bank-batch] [           main] o.s.batch.core.step.AbstractStep         : Executing step: [resumenDiarioStep]
+2026-08-30T18:48:37.456-04:00  INFO 36425 --- [bank-batch] [           main] c.d.b.t.ResumenDiarioTasklet             : resumen diario generado para 322 fechas
+2026-08-30T18:48:37.458-04:00  INFO 36425 --- [bank-batch] [           main] o.s.batch.core.step.AbstractStep         : Step: [resumenDiarioStep] executed in 339ms
+2026-08-30T18:48:37.458-04:00  INFO 36425 --- [bank-batch] [           main] c.d.b.support.MetricasJobListener        : ================ RESUMEN reporteTransaccionesDiarias ================
+2026-08-30T18:48:37.458-04:00  INFO 36425 --- [bank-batch] [           main] c.d.b.support.MetricasJobListener        : parametros    : {JobParameter{name='ejecucion', value=1788130116738, type=class java.lang.String, identifying=true}}
+2026-08-30T18:48:37.458-04:00  INFO 36425 --- [bank-batch] [           main] c.d.b.support.MetricasJobListener        : estado        : COMPLETED
+2026-08-30T18:48:37.458-04:00  INFO 36425 --- [bank-batch] [           main] c.d.b.support.MetricasJobListener        : duracion total: 697 ms
+2026-08-30T18:48:37.458-04:00  INFO 36425 --- [bank-batch] [           main] c.d.b.support.MetricasJobListener        :   step cargarTransaccionesStep -> leidos=1000 escritos=785 descartados=215 reintentos_lectura=0 commits=10 duracion=356 ms
+2026-08-30T18:48:37.458-04:00  INFO 36425 --- [bank-batch] [           main] c.d.b.support.MetricasJobListener        :   step resumenDiarioStep -> leidos=0 escritos=322 descartados=0 reintentos_lectura=0 commits=1 duracion=339 ms
+2026-08-30T18:48:37.458-04:00  INFO 36425 --- [bank-batch] [           main] c.d.b.support.MetricasJobListener        : ===========================================
+2026-08-30T18:48:37.459-04:00  INFO 36425 --- [bank-batch] [           main] o.s.b.c.l.s.TaskExecutorJobLauncher      : Job: [SimpleJob: [name=reporteTransaccionesDiarias]] completed with the following parameters: [{JobParameter{name='ejecucion', value=1788130116738, type=class java.lang.String, identifying=true}}] and the following status: [COMPLETED] in 697ms
+2026-08-30T18:48:37.460-04:00  INFO 36425 --- [bank-batch] [           main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-30T18:48:37.461-04:00  INFO 36425 --- [bank-batch] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-08-30T18:48:37.468-04:00  INFO 36425 --- [bank-batch] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+
+matiasmejias@Mac-mini-de-Matias sumativa-01 %

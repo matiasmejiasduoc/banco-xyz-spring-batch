@@ -1,0 +1,70 @@
+matiasmejias@Mac-mini-de-Matias sumativa-01 % docker exec -it bank-batch-db psql -U bank -d bankxyz
+
+bankxyz=# select count(*) from transaccion;
+ count 
+-------
+   785
+(1 row)
+
+bankxyz=# select * from resumen_transaccion_diaria order by fecha limit 8;
+ id | cantidad_anomalias | cantidad_transacciones |   fecha    | monto_anomalo | monto_credito | monto_debito 
+----+--------------------+------------------------+------------+---------------+---------------+--------------
+  1 |                  2 |                      4 | 2024-01-01 |       1300.00 |        800.00 |      1200.00
+  2 |                  0 |                      1 | 2024-01-02 |          0.00 |        700.00 |         0.00
+  3 |                  2 |                      3 | 2024-01-04 |       2800.00 |        800.00 |         0.00
+  4 |                  1 |                      1 | 2024-01-05 |       1500.00 |          0.00 |         0.00
+  5 |                  0 |                      1 | 2024-01-06 |          0.00 |          0.00 |      3000.00
+  6 |                  0 |                      1 | 2024-01-07 |          0.00 |        700.00 |         0.00
+  7 |                  1 |                      2 | 2024-01-08 |       3000.00 |        800.00 |         0.00
+  8 |                  3 |                      4 | 2024-01-09 |       2900.00 |          0.00 |      3000.00
+(8 rows)
+
+bankxyz=# select cuenta_id, nombre, tipo, edad, saldo_inicial, interes_calculado, saldo_final from cuenta_interes limit 8;
+ cuenta_id |    nombre    |   tipo   | edad | saldo_inicial | interes_calculado | saldo_final 
+-----------+--------------+----------+------+---------------+-------------------+-------------
+       137 | Bob Johnson  | PRESTAMO |      |       7000.00 |            126.00 |     7126.00
+       133 | Alice Brown  | HIPOTECA |  100 |      12000.00 |            144.00 |    12144.00
+       106 | Jane Smith   | PRESTAMO |   40 |      12000.00 |            216.00 |    12216.00
+       122 | Bob Johnson  | HIPOTECA |   40 |       7000.00 |             84.00 |     7084.00
+       108 | Jane Smith   | PRESTAMO |  100 |      12000.00 |            216.00 |    12216.00
+       124 | Bob Johnson  | HIPOTECA |   35 |      12000.00 |            144.00 |    12144.00
+       133 | Steve Rogers | PRESTAMO |   40 |      12000.00 |            216.00 |    12216.00
+       130 | Diana Prince | HIPOTECA |   45 |      12000.00 |            144.00 |    12144.00
+(8 rows)
+
+bankxyz=# select * from estado_cuenta_anual order by cuenta_id limit 8;
+ id | anio | cantidad_anomalias | cantidad_movimientos | cuenta_id | saldo_neto | total_egresos | total_ingresos 
+----+------+--------------------+----------------------+-----------+------------+---------------+----------------
+  1 | 2024 |                 19 |                   44 |       101 |   12900.00 |      25100.00 |       38000.00
+  6 | 2024 |                 27 |                   51 |       102 |  -31000.00 |      55200.00 |       24200.00
+  9 | 2024 |                 18 |                   39 |       103 |  -49700.00 |      61900.00 |       12200.00
+ 15 | 2024 |                 21 |                   51 |       104 |  -39200.00 |      56500.00 |       17300.00
+ 19 | 2024 |                 23 |                   56 |       105 |  -26000.00 |      53100.00 |       27100.00
+  3 | 2024 |                 25 |                   58 |       106 |  -30500.00 |      60800.00 |       30300.00
+  8 | 2024 |                 27 |                   54 |       107 |  -29400.00 |      58300.00 |       28900.00
+ 12 | 2024 |                 21 |                   51 |       108 |  -41400.00 |      59600.00 |       18200.00
+(8 rows)
+
+bankxyz=# select proceso, campo, count(*) from registro_rechazado group by 1,2 order by 1;
+           proceso           | campo | count 
+-----------------------------+-------+-------
+ calculoInteresesMensuales   | saldo |   207
+ calculoInteresesMensuales   | tipo  |   260
+ generacionEstadosAnuales    | monto |    48
+ reporteTransaccionesDiarias | monto |   160
+ reporteTransaccionesDiarias | fecha |    55
+(5 rows)
+
+bankxyz=# select campo, motivo, contenido from registro_rechazado limit 6;
+ campo |                                motivo                                |                   contenido                    
+-------+----------------------------------------------------------------------+------------------------------------------------
+ fecha | campo 'fecha': formato no reconocido o fecha inexistente: 2024-13-01 | id=7 fecha=2024-13-01 monto=700 tipo=debito
+ monto | campo 'monto': vacio                                                 | id=15 fecha=01/06/2024 monto= tipo=desconocido
+ monto | campo 'monto': vacio                                                 | id=25 fecha=09/11/2024 monto= tipo=debito
+ monto | campo 'monto': vacio                                                 | id=28 fecha=2024-09-03 monto= tipo=desconocido
+ monto | campo 'monto': vacio                                                 | id=45 fecha=23/08/2024 monto= tipo=credito
+ monto | campo 'monto': vacio                                                 | id=53 fecha=02/07/2024 monto= tipo=debito
+(6 rows)
+
+bankxyz=# \q
+matiasmejias@Mac-mini-de-Matias sumativa-01 %

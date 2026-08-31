@@ -1,0 +1,73 @@
+matiasmejias@Mac-mini-de-Matias sumativa-01 % java -jar target/bank-batch-0.0.1-SNAPSHOT.jar --job=reporteTransaccionesDiarias --bank.scaling.threads=1
+================ RESUMEN reporteTransaccionesDiarias ================
+parametros    : {JobParameter{name='ejecucion', value=1788130157921, type=class java.lang.String, identifying=true}}
+estado        : COMPLETED
+duracion total: 780 ms
+  step cargarTransaccionesStep -> leidos=1000 escritos=785 descartados=215 reintentos_lectura=0 commits=10 duracion=471 ms
+  step resumenDiarioStep -> leidos=0 escritos=322 descartados=0 reintentos_lectura=0 commits=1 duracion=307 ms
+===========================================
+
+matiasmejias@Mac-mini-de-Matias sumativa-01 % java -jar target/bank-batch-0.0.1-SNAPSHOT.jar --job=reporteTransaccionesDiarias --bank.scaling.threads=2
+================ RESUMEN reporteTransaccionesDiarias ================
+parametros    : {JobParameter{name='ejecucion', value=1788130160399, type=class java.lang.String, identifying=true}}
+estado        : COMPLETED
+duracion total: 742 ms
+  step cargarTransaccionesStep -> leidos=1000 escritos=785 descartados=215 reintentos_lectura=0 commits=10 duracion=422 ms
+  step resumenDiarioStep -> leidos=0 escritos=322 descartados=0 reintentos_lectura=0 commits=1 duracion=318 ms
+===========================================
+
+matiasmejias@Mac-mini-de-Matias sumativa-01 % java -jar target/bank-batch-0.0.1-SNAPSHOT.jar --job=reporteTransaccionesDiarias --bank.scaling.threads=4
+================ RESUMEN reporteTransaccionesDiarias ================
+parametros    : {JobParameter{name='ejecucion', value=1788130162772, type=class java.lang.String, identifying=true}}
+estado        : COMPLETED
+duracion total: 701 ms
+  step cargarTransaccionesStep -> leidos=1000 escritos=785 descartados=215 reintentos_lectura=0 commits=10 duracion=366 ms
+  step resumenDiarioStep -> leidos=0 escritos=322 descartados=0 reintentos_lectura=0 commits=1 duracion=333 ms
+===========================================
+
+matiasmejias@Mac-mini-de-Matias sumativa-01 % java -jar target/bank-batch-0.0.1-SNAPSHOT.jar --job=reporteTransaccionesDiarias --bank.scaling.threads=8
+================ RESUMEN reporteTransaccionesDiarias ================
+parametros    : {JobParameter{name='ejecucion', value=1788130165088, type=class java.lang.String, identifying=true}}
+estado        : COMPLETED
+duracion total: 703 ms
+  step cargarTransaccionesStep -> leidos=1000 escritos=785 descartados=215 reintentos_lectura=0 commits=10 duracion=360 ms
+  step resumenDiarioStep -> leidos=0 escritos=322 descartados=0 reintentos_lectura=0 commits=1 duracion=342 ms
+===========================================
+
+matiasmejias@Mac-mini-de-Matias sumativa-01 % java -jar target/bank-batch-0.0.1-SNAPSHOT.jar --job=generacionEstadosAnuales --bank.scaling.grid-size=1 --bank.scaling.threads=1
+================ RESUMEN generacionEstadosAnuales ================
+parametros    : {JobParameter{name='ejecucion', value=1788130167490, type=class java.lang.String, identifying=true}}
+estado        : COMPLETED
+duracion total: 661 ms
+  step cargarMovimientosStep -> leidos=1000 escritos=952 descartados=48 reintentos_lectura=0 commits=10 duracion=395 ms
+  step estadoCuentaParticionadoStep -> leidos=0 escritos=20 descartados=0 reintentos_lectura=0 commits=1 duracion=264 ms
+===========================================
+
+matiasmejias@Mac-mini-de-Matias sumativa-01 % java -jar target/bank-batch-0.0.1-SNAPSHOT.jar --job=generacionEstadosAnuales --bank.scaling.grid-size=2 --bank.scaling.threads=2
+================ RESUMEN generacionEstadosAnuales ================
+parametros    : {JobParameter{name='ejecucion', value=1788130169818, type=class java.lang.String, identifying=true}}
+estado        : COMPLETED
+duracion total: 695 ms
+  step cargarMovimientosStep -> leidos=1000 escritos=952 descartados=48 reintentos_lectura=0 commits=10 duracion=352 ms
+  step estadoCuentaParticionadoStep -> leidos=0 escritos=20 descartados=0 reintentos_lectura=0 commits=2 duracion=341 ms
+===========================================
+
+matiasmejias@Mac-mini-de-Matias sumativa-01 % java -jar target/bank-batch-0.0.1-SNAPSHOT.jar --job=generacionEstadosAnuales --bank.scaling.grid-size=4 --bank.scaling.threads=4
+================ RESUMEN generacionEstadosAnuales ================
+parametros    : {JobParameter{name='ejecucion', value=1788130172224, type=class java.lang.String, identifying=true}}
+estado        : COMPLETED
+duracion total: 809 ms
+  step cargarMovimientosStep -> leidos=1000 escritos=952 descartados=48 reintentos_lectura=0 commits=10 duracion=367 ms
+  step estadoCuentaParticionadoStep -> leidos=0 escritos=20 descartados=0 reintentos_lectura=0 commits=4 duracion=440 ms
+===========================================
+
+matiasmejias@Mac-mini-de-Matias sumativa-01 % java -jar target/bank-batch-0.0.1-SNAPSHOT.jar --job=generacionEstadosAnuales --bank.scaling.grid-size=8 --bank.scaling.threads=8
+================ RESUMEN generacionEstadosAnuales ================
+parametros    : {JobParameter{name='ejecucion', value=1788130174728, type=class java.lang.String, identifying=true}}
+estado        : COMPLETED
+duracion total: 751 ms
+  step cargarMovimientosStep -> leidos=1000 escritos=952 descartados=48 reintentos_lectura=0 commits=10 duracion=387 ms
+  step estadoCuentaParticionadoStep -> leidos=0 escritos=20 descartados=0 reintentos_lectura=0 commits=7 duracion=363 ms
+===========================================
+
+matiasmejias@Mac-mini-de-Matias sumativa-01 %

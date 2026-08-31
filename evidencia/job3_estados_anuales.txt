@@ -1,0 +1,72 @@
+matiasmejias@Mac-mini-de-Matias sumativa-01 % java -jar target/bank-batch-0.0.1-SNAPSHOT.jar --job=generacionEstadosAnuales
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.1)
+
+2026-08-30T18:48:39.834-04:00  INFO 36430 --- [bank-batch] [           main] cl.duoc.bankbatch.BankBatchApplication   : Starting BankBatchApplication v0.0.1-SNAPSHOT using Java 24.0.2 with PID 36430 (/Users/matiasmejias/Documents/development/duoc/backend-03/sumativa-01/target/bank-batch-0.0.1-SNAPSHOT.jar started by matiasmejias in /Users/matiasmejias/Documents/development/duoc/backend-03/sumativa-01)
+2026-08-30T18:48:39.835-04:00  INFO 36430 --- [bank-batch] [           main] cl.duoc.bankbatch.BankBatchApplication   : No active profile set, falling back to 1 default profile: "default"
+2026-08-30T18:48:40.018-04:00  INFO 36430 --- [bank-batch] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-30T18:48:40.037-04:00  INFO 36430 --- [bank-batch] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15 ms. Found 1 JPA repository interface.
+2026-08-30T18:48:40.207-04:00  INFO 36430 --- [bank-batch] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-30T18:48:40.229-04:00  INFO 36430 --- [bank-batch] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-08-30T18:48:40.392-04:00  INFO 36430 --- [bank-batch] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-30T18:48:40.403-04:00  INFO 36430 --- [bank-batch] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-08-30T18:48:40.546-04:00  INFO 36430 --- [bank-batch] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1d17423f
+2026-08-30T18:48:40.548-04:00  INFO 36430 --- [bank-batch] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-08-30T18:48:40.580-04:00  INFO 36430 --- [bank-batch] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5433/bankxyz]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 16.14
+	Default catalog/schema: bankxyz/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-30T18:48:40.960-04:00  INFO 36430 --- [bank-batch] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-30T18:48:40.961-04:00  INFO 36430 --- [bank-batch] [           main] org.hibernate.orm.jdbc.batch             : HHH100501: Automatic JDBC statement batching enabled (maximum batch size 100)
+2026-08-30T18:48:41.005-04:00  INFO 36430 --- [bank-batch] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-30T18:48:41.079-04:00  INFO 36430 --- [bank-batch] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-08-30T18:48:41.236-04:00  INFO 36430 --- [bank-batch] [           main] cl.duoc.bankbatch.BankBatchApplication   : Started BankBatchApplication in 1.561 seconds (process running for 1.772)
+2026-08-30T18:48:41.258-04:00  INFO 36430 --- [bank-batch] [           main] o.s.b.c.l.s.TaskExecutorJobLauncher      : Job: [SimpleJob: [name=generacionEstadosAnuales]] launched with the following parameters: [{JobParameter{name='ejecucion', value=1788130121237, type=class java.lang.String, identifying=true}}]
+2026-08-30T18:48:41.260-04:00  INFO 36430 --- [bank-batch] [           main] o.s.batch.core.step.AbstractStep         : Executing step: [cargarMovimientosStep]
+2026-08-30T18:48:41.649-04:00  INFO 36430 --- [bank-batch] [           main] o.s.batch.core.step.AbstractStep         : Step: [cargarMovimientosStep] executed in 388ms
+2026-08-30T18:48:41.649-04:00  INFO 36430 --- [bank-batch] [           main] o.s.batch.core.step.AbstractStep         : Executing step: [estadoCuentaParticionadoStep]
+2026-08-30T18:48:41.653-04:00  INFO 36430 --- [bank-batch] [        batch-2] o.s.batch.core.step.AbstractStep         : Executing step: [estadoCuentaWorkerStep:particion3]
+2026-08-30T18:48:41.653-04:00  INFO 36430 --- [bank-batch] [        batch-3] o.s.batch.core.step.AbstractStep         : Executing step: [estadoCuentaWorkerStep:particion0]
+2026-08-30T18:48:41.653-04:00  INFO 36430 --- [bank-batch] [        batch-1] o.s.batch.core.step.AbstractStep         : Executing step: [estadoCuentaWorkerStep:particion1]
+2026-08-30T18:48:41.653-04:00  INFO 36430 --- [bank-batch] [        batch-4] o.s.batch.core.step.AbstractStep         : Executing step: [estadoCuentaWorkerStep:particion2]
+2026-08-30T18:48:42.138-04:00  INFO 36430 --- [bank-batch] [        batch-2] c.d.b.anuales.EstadoCuentaTasklet        : particion cuentas 116-120: 5 estados generados
+2026-08-30T18:48:42.138-04:00  INFO 36430 --- [bank-batch] [        batch-3] c.d.b.anuales.EstadoCuentaTasklet        : particion cuentas 101-105: 5 estados generados
+2026-08-30T18:48:42.138-04:00  INFO 36430 --- [bank-batch] [        batch-4] c.d.b.anuales.EstadoCuentaTasklet        : particion cuentas 111-115: 5 estados generados
+2026-08-30T18:48:42.138-04:00  INFO 36430 --- [bank-batch] [        batch-1] c.d.b.anuales.EstadoCuentaTasklet        : particion cuentas 106-110: 5 estados generados
+2026-08-30T18:48:42.139-04:00  INFO 36430 --- [bank-batch] [        batch-3] o.s.batch.core.step.AbstractStep         : Step: [estadoCuentaWorkerStep:particion0] executed in 486ms
+2026-08-30T18:48:42.139-04:00  INFO 36430 --- [bank-batch] [        batch-2] o.s.batch.core.step.AbstractStep         : Step: [estadoCuentaWorkerStep:particion3] executed in 486ms
+2026-08-30T18:48:42.139-04:00  INFO 36430 --- [bank-batch] [        batch-4] o.s.batch.core.step.AbstractStep         : Step: [estadoCuentaWorkerStep:particion2] executed in 486ms
+2026-08-30T18:48:42.139-04:00  INFO 36430 --- [bank-batch] [        batch-1] o.s.batch.core.step.AbstractStep         : Step: [estadoCuentaWorkerStep:particion1] executed in 486ms
+2026-08-30T18:48:42.140-04:00  INFO 36430 --- [bank-batch] [           main] o.s.batch.core.step.AbstractStep         : Step: [estadoCuentaParticionadoStep] executed in 490ms
+2026-08-30T18:48:42.140-04:00  INFO 36430 --- [bank-batch] [           main] c.d.b.support.MetricasJobListener        : ================ RESUMEN generacionEstadosAnuales ================
+2026-08-30T18:48:42.140-04:00  INFO 36430 --- [bank-batch] [           main] c.d.b.support.MetricasJobListener        : parametros    : {JobParameter{name='ejecucion', value=1788130121237, type=class java.lang.String, identifying=true}}
+2026-08-30T18:48:42.140-04:00  INFO 36430 --- [bank-batch] [           main] c.d.b.support.MetricasJobListener        : estado        : COMPLETED
+2026-08-30T18:48:42.140-04:00  INFO 36430 --- [bank-batch] [           main] c.d.b.support.MetricasJobListener        : duracion total: 880 ms
+2026-08-30T18:48:42.140-04:00  INFO 36430 --- [bank-batch] [           main] c.d.b.support.MetricasJobListener        :   step cargarMovimientosStep -> leidos=1000 escritos=952 descartados=48 reintentos_lectura=0 commits=10 duracion=388 ms
+2026-08-30T18:48:42.140-04:00  INFO 36430 --- [bank-batch] [           main] c.d.b.support.MetricasJobListener        :   step estadoCuentaParticionadoStep -> leidos=0 escritos=20 descartados=0 reintentos_lectura=0 commits=4 duracion=490 ms
+2026-08-30T18:48:42.140-04:00  INFO 36430 --- [bank-batch] [           main] c.d.b.support.MetricasJobListener        :   step estadoCuentaWorkerStep:particion3 -> leidos=0 escritos=5 descartados=0 reintentos_lectura=0 commits=1 duracion=486 ms
+2026-08-30T18:48:42.140-04:00  INFO 36430 --- [bank-batch] [           main] c.d.b.support.MetricasJobListener        :   step estadoCuentaWorkerStep:particion0 -> leidos=0 escritos=5 descartados=0 reintentos_lectura=0 commits=1 duracion=486 ms
+2026-08-30T18:48:42.140-04:00  INFO 36430 --- [bank-batch] [           main] c.d.b.support.MetricasJobListener        :   step estadoCuentaWorkerStep:particion2 -> leidos=0 escritos=5 descartados=0 reintentos_lectura=0 commits=1 duracion=486 ms
+2026-08-30T18:48:42.140-04:00  INFO 36430 --- [bank-batch] [           main] c.d.b.support.MetricasJobListener        :   step estadoCuentaWorkerStep:particion1 -> leidos=0 escritos=5 descartados=0 reintentos_lectura=0 commits=1 duracion=486 ms
+2026-08-30T18:48:42.140-04:00  INFO 36430 --- [bank-batch] [           main] c.d.b.support.MetricasJobListener        : ===========================================
+2026-08-30T18:48:42.141-04:00  INFO 36430 --- [bank-batch] [           main] o.s.b.c.l.s.TaskExecutorJobLauncher      : Job: [SimpleJob: [name=generacionEstadosAnuales]] completed with the following parameters: [{JobParameter{name='ejecucion', value=1788130121237, type=class java.lang.String, identifying=true}}] and the following status: [COMPLETED] in 880ms
+2026-08-30T18:48:42.143-04:00  INFO 36430 --- [bank-batch] [           main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-30T18:48:42.144-04:00  INFO 36430 --- [bank-batch] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-08-30T18:48:42.145-04:00  INFO 36430 --- [bank-batch] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+
+matiasmejias@Mac-mini-de-Matias sumativa-01 %

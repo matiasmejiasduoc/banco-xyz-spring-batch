@@ -1,0 +1,20 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: bank-batch-db
+    environment:
+      POSTGRES_DB: bankxyz
+      POSTGRES_USER: bank
+      POSTGRES_PASSWORD: bank
+    ports:
+      - "5433:5432"
+    volumes:
+      - bank-batch-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U bank -d bankxyz"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  bank-batch-data:
