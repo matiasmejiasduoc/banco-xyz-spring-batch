@@ -2,6 +2,8 @@
 
 Actividad sumativa semana 3, Desarrollo Backend III (PBY2203).
 
+Repositorio: https://github.com/matiasmejiasduoc/banco-xyz-spring-batch
+
 Migra tres procesos batch del sistema legacy del Banco XYZ a Spring Batch. Los datos vienen
 de https://github.com/KariVillagran/bank_legacy_data (carpeta `data/semana_3`) y traen errores
 a propósito: fechas en varios formatos, montos vacíos o negativos, tipos inválidos y duplicados.
